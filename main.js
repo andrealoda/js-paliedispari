@@ -132,13 +132,26 @@ nome della somma: numberSum
 
 
 */
-// stabiliamo una scelta arbitraria del giocatore
-const playerChoice = 'pari'
 // 🔴 dovremo implementare una logica che restituisce errore se il giocatore inserice una scelta non valida e
 // una logica che converte tutto in minuscolo se il giocatore scrive qualche lettera in maiuscolo
-// stabiliamo un numero casuale che potrebbe utilizzare il giocatore
-const playerNum = 4;
-// 🔴 dovremo implementare una logica che restituisce errore se il giocatore inserisce un valore non valido
+let playerChoice = prompt('Pick even or odd').toLowerCase();
+
+while (playerChoice !== 'even' && playerChoice !== 'odd') {
+    alert('Uh-oh! Check what you wrote. You must enter EVEN or ODD.')
+    playerChoice = prompt('Pick even or odd').toLowerCase();
+}
+console.log(playerChoice);
+
+
+// 🔴 dovremo implementare una logica che restituisce errore se il giocatore inserisce un numero non valido o una stringa
+let playerNum = Number(prompt('Pick a number between 1 and 5'));
+
+while (playerNum < 1 || playerNum > 5 || isNaN(playerNum)) {
+    alert('Uh-oh! That number isn\'t valid. Try again.')
+    playerNum = Number(prompt('Pick a number between 1 and 5'));
+}
+console.log(playerNum);
+
 
 // funzione che restituisce numeri random tra 1 e 5 compresi
 
