@@ -67,22 +67,97 @@ ROADMAP
 
 // 🔴 la funzione deve essere indipendente da variabili esterne!
 
-function isPalindrome(initialWord) {
+// function isPalindrome(initialWord) {
 
-    let reversedWord = '';
+//     let reversedWord = '';
 
-    for (let i = initialWord.length - 1; i >= 0; i--) {
-        const initialWordElement = initialWord[i];
-        reversedWord += initialWordElement;
-    }
+//     for (let i = initialWord.length - 1; i >= 0; i--) {
+//         const initialWordElement = initialWord[i];
+//         reversedWord += initialWordElement;
+//     }
 
-    return reversedWord === initialWord;
+//     return reversedWord === initialWord;
+// }
+
+// const inputWord = prompt('To find out whether a word is a palindrome, write it here and press OK.');
+// const initialWord = inputWord.toLowerCase();
+
+// const response = isPalindrome(initialWord);
+// alert('Is the word a palindrome? ' + response);
+
+
+// END OF TASK 1
+
+// Pari e Dispari
+// 1. L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.
+// 2. Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
+// 3. Sommiamo i due numeri
+// 4. Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
+// 5. Dichiariamo chi ha vinto.
+
+/* ROADMAP
+
+- stabiliamo cosa deve restituire la funzione
+    - la funzione restituisce il vincitore
+
+- quali saranno gli argomenti della funzione?
+    - gli argomenti della funzione sono quegli elementi che dovranno essere presi dall'esterno:
+        - la scelta tra pari e dispari del giocatore
+        - il numero compreso tra 1 e 5 (inclusi) scelto dal giocatore
+
+- stabiliamo la logica interna alla funzione
+    - generazione del numero random (usando una funzione)
+    - sommiamo i numeri
+    - usiamo %2 per stabilire se la somma è pari o dispari (usando una funzione)
+
+- la funzione principale dichiara il vincitore in un alert
+
+🔴 le funzioni in totale sono 3:
+    - la funzione che genera il numero random
+    - la funzione che stabilisce se la somma è pari o dispari
+    - la funzione che dichiara chi ha vinto
+Domanda: serve realmente la funzione che dichiara chi ha vinto? Nelle istruzioni non è chiaro se debba essere una funzione.
+
+➡️ possiamo iniziare creando la funzione che genera numeri random
+    e quella che stabilisce se la somma è pari o dispari.
+    Dovranno poi essere chiamate all'interno della funzione principale.
+
+📋 Stabiliamo quanche nome, per essere coerenti in seguito:
+scelta pari o dispari del giocatore: playerChoice
+scelta del numero del giocatore: playerNum
+nome della fuzione principale: winnerDeclaration
+nome della funzione che genera numeri random: randomGenerator
+nome della funzione che stabilisce se la somma è pari o dispari: numberComparison
+nome della somma: numberSum
+
+
+*/
+// stabiliamo una scelta arbitraria del giocatore
+const playerChoice = 'pari'
+// 🔴 dovremo implementare una logica che restituisce errore se il giocatore inserice una scelta non valida e
+// una logica che converte tutto in minuscolo se il giocatore scrive qualche lettera in maiuscolo
+// stabiliamo un numero casuale che potrebbe utilizzare il giocatore
+const playerNum = 4;
+// 🔴 dovremo implementare una logica che restituisce errore se il giocatore inserisce un valore non valido
+
+// funzione che restituisce numeri random tra 1 e 5 compresi
+
+function randomGenerator(minNum, maxNum) {
+    return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
 }
 
-const inputWord = prompt('To find out whether a word is a palindrome, write it here and press OK.');
-const initialWord = inputWord.toLowerCase();
+const randomNum = randomGenerator(1, 5);
+console.log(randomNum);
 
-const response = isPalindrome(initialWord);
-alert('Is the word a palindrome? ' + response);
+// funzione che stabilisce se la somma è PARI
 
+function numberComparison(randomNum, playerNum) {
+    return (randomNum + playerNum) % 2 === 0;
+}
 
+const comparisonResult = numberComparison(randomNum, playerNum);
+console.log(comparisonResult);
+
+// qunado vince il giocatore?
+// se il giocatore ha giocato PARI e numberComparison è true
+// se il giocatore ha giocato DISPARI e numberComparison è false
