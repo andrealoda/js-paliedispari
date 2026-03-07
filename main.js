@@ -76,13 +76,7 @@ function isPalindrome(initialWord) {
         reversedWord += initialWordElement;
     }
 
-    let palindrome = false;
-
-    if (reversedWord === initialWord) {
-        palindrome = true
-    }
-
-    return palindrome;
+    return reversedWord === initialWord;
 }
 
 const inputWord = prompt('To find out whether a word is a palindrome, write it here and press OK.');
