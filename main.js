@@ -42,27 +42,53 @@ ROADMAP
 
 // PALINDROMA
 
-const inputWord = prompt('To find out whether a word is a palindrome, write it here and press OK.');
-const initialWord = inputWord.toLowerCase();
-let reversedWord = '';
-let palindrome = false;
+// const inputWord = prompt('To find out whether a word is a palindrome, write it here and press OK.');
+// const initialWord = inputWord.toLowerCase();
+// let reversedWord = '';
+// let palindrome = false;
 
 // function palindrome(initialWord) {}
 
-for (let i = initialWord.length -1; i >= 0; i--) {
-    const initialWordElement = initialWord[i];
-    reversedWord += initialWordElement;
+// for (let i = initialWord.length - 1; i >= 0; i--) {
+//     const initialWordElement = initialWord[i];
+//     reversedWord += initialWordElement;
+// }
+
+// console.log(initialWord);
+// console.log(reversedWord);
+
+// if (reversedWord === initialWord) {
+//     palindrome = true
+// }
+
+// console.log(palindrome);
+
+// const response = alert('is the word palindrome? ' + palindrome)
+
+// 🔴 la funzione deve essere indipendente da variabili esterne!
+
+function isPalindrome(initialWord) {
+
+    let reversedWord = '';
+
+    for (let i = initialWord.length - 1; i >= 0; i--) {
+        const initialWordElement = initialWord[i];
+        reversedWord += initialWordElement;
+    }
+
+    let palindrome = false;
+
+    if (reversedWord === initialWord) {
+        palindrome = true
+    }
+
+    return palindrome;
 }
 
-console.log(initialWord);
-console.log(reversedWord);
+const inputWord = prompt('To find out whether a word is a palindrome, write it here and press OK.');
+const initialWord = inputWord.toLowerCase();
 
-if (reversedWord === initialWord) {
-       palindrome = true 
-}
-
-console.log(palindrome);
-
-const response = alert('is the word palindrome? ' + palindrome)
+const response = isPalindrome(initialWord);
+alert('Is the word a palindrome? ' + response);
 
 
