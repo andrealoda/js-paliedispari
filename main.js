@@ -17,7 +17,7 @@
 ROADMAP
 
 1. Chiedere all’utente di inserire una parola
-    - implementare la domanda utilizzando prompt (dichiariamo la variabile come false, in modo da evitare un else alla fine della funzione?)
+    - implementare la domanda utilizzando prompt
     - salvare la risposta in una variabile stringa (initialWord)
 
 2. Creare una funzione per capire se la parola inserita è palindroma
@@ -26,7 +26,7 @@ ROADMAP
     - quindi per capire se una parola è palindroma, dobbiamo invertirla e confrontarla con l'originale.
     - se sono uguali, allora è palindroma.
         - il metodo per invertire una stringa
-            - creare una stringa vuota che ospiterà la parola invertita
+            - creare una stringa vuota che ospiterà la parola invertita.
             - utilizzare il ciclo for partendo dalla fine "for (let i = stringa.length -1; i >= 0; i--)"
             - aggiungere il risultato di ogni ciclo alla nuova stringa (nuovaStringa += stringa[i])
             - utilizziamo le due variabili (striga di partenza e nuova stringa) in un if/else
@@ -39,4 +39,30 @@ ROADMAP
     - Se sì, di che tipo? Booleano true/false
 
 */
+
+// PALINDROMA
+
+const inputWord = prompt('To find out whether a word is a palindrome, write it here and press OK.');
+const initialWord = inputWord.toLowerCase();
+let reversedWord = '';
+let palindrome = false;
+
+// function palindrome(initialWord) {}
+
+for (let i = initialWord.length -1; i >= 0; i--) {
+    const initialWordElement = initialWord[i];
+    reversedWord += initialWordElement;
+}
+
+console.log(initialWord);
+console.log(reversedWord);
+
+if (reversedWord === initialWord) {
+       palindrome = true 
+}
+
+console.log(palindrome);
+
+const response = alert('is the word palindrome? ' + palindrome)
+
 
