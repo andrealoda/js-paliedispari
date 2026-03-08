@@ -139,66 +139,129 @@ nome della somma: numberSum
 */
 // 🔴 dovremo implementare una logica che restituisce errore se il giocatore inserice una scelta non valida e
 // una logica che converte tutto in minuscolo se il giocatore scrive qualche lettera in maiuscolo
-let playerChoice = prompt('Pick even or odd').toLowerCase();
+// let playerChoice = prompt('Pick even or odd').toLowerCase();
 
-while (playerChoice !== 'even' && playerChoice !== 'odd') {
-    alert('Uh-oh! Check what you wrote. You must enter EVEN or ODD.')
-    playerChoice = prompt('Pick even or odd').toLowerCase();
-}
+// while (playerChoice !== 'even' && playerChoice !== 'odd') {
+//     alert('Uh-oh! Check what you wrote. You must enter EVEN or ODD.')
+//     playerChoice = prompt('Pick even or odd').toLowerCase();
+// }
 
-if (playerChoice === 'even') {
-    playerChoice = true;
-} else {
-    playerChoice = false;
-}
+// if (playerChoice === 'even') {
+//     playerChoice = true;
+// } else {
+//     playerChoice = false;
+// }
 
-console.log(playerChoice);
-
-
-// 🔴 dovremo implementare una logica che restituisce errore se il giocatore inserisce un numero non valido o una stringa
-let playerNum = Number(prompt('Pick a number between 1 and 5'));
-
-while (playerNum < 1 || playerNum > 5 || isNaN(playerNum)) {
-    alert('Uh-oh! That number isn\'t valid. Try again.')
-    playerNum = Number(prompt('Pick a number between 1 and 5'));
-}
-console.log(playerNum);
+// console.log(playerChoice);
 
 
-// funzione che restituisce numeri random tra 1 e 5 compresi
+// // 🔴 dovremo implementare una logica che restituisce errore se il giocatore inserisce un numero non valido o una stringa
+// let playerNum = Number(prompt('Pick a number between 1 and 5'));
 
-function randomGenerator(minNum, maxNum) {
-    return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
-}
+// while (playerNum < 1 || playerNum > 5 || isNaN(playerNum)) {
+//     alert('Uh-oh! That number isn\'t valid. Try again.')
+//     playerNum = Number(prompt('Pick a number between 1 and 5'));
+// }
+// console.log(playerNum);
 
-const randomNum = randomGenerator(1, 5);
-console.log(randomNum);
 
-// funzione che stabilisce se la somma è PARI
+// // funzione che restituisce numeri random tra 1 e 5 compresi
 
-function numberComparison(randomNum, playerNum) {
-    return (randomNum + playerNum) % 2 === 0;
-}
+// function randomGenerator(minNum, maxNum) {
+//     return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+// }
 
-const comparisonResult = numberComparison(randomNum, playerNum);
-console.log(comparisonResult);
+// const randomNum = randomGenerator(1, 5);
+// console.log(randomNum);
 
-// qunado vince il giocatore?
-// se il giocatore ha giocato PARI e numberComparison è true
-// se il giocatore ha giocato DISPARI e numberComparison è false
+// // funzione che stabilisce se la somma è PARI
 
-if (playerChoice === comparisonResult) {
-    alert('🍻 You win! Wanna try again?');
-    window.location.reload();
-} else {
-    alert('😭 You loose... wanna try again?');
-    window.location.reload();
-}
+// function numberComparison(randomNum, playerNum) {
+//     return (randomNum + playerNum) % 2 === 0;
+// }
+
+// const comparisonResult = numberComparison(randomNum, playerNum);
+// console.log(comparisonResult);
+
+// // qunado vince il giocatore?
+// // se il giocatore ha giocato PARI e numberComparison è true
+// // se il giocatore ha giocato DISPARI e numberComparison è false
+
+// if (playerChoice === comparisonResult) {
+//     alert('🍻 You win! Wanna try again?');
+//     window.location.reload();
+// } else {
+//     alert('😭 You loose... wanna try again?');
+//     window.location.reload();
+// }
 
 // -------------------------------------
 // ➡️ CODICE COMPLETO "PARI O DISPARI"
 // -------------------------------------
 
+// il giocatore sceglie pari o dispari e convertiamo la stringa in minuscolo
+let playerChoice = prompt('Pick even or odd').toLowerCase();
+
+// se il giocatore scrive qualcosa di inaspettato chiediamo di correggere
+while (playerChoice !== 'even' && playerChoice !== 'odd') {
+    alert('Uh-oh! Check what you wrote. You must enter EVEN or ODD.')
+    playerChoice = prompt('Pick even or odd').toLowerCase();
+}
+
+// il giocatore scegli il numero
+let playerNum = Number(prompt('Pick a number between 1 and 5'));
+
+// se il giocatore scegli un numero <1 o >5 chiediamo di correggere
+while (playerNum < 1 || playerNum > 5 || isNaN(playerNum)) {
+    alert('Uh-oh! That number isn\'t valid. Try again.')
+    playerNum = Number(prompt('Pick a number between 1 and 5'));
+}
+
+// la funzione racchiude tutta la logica del gioco
+function paritas(playerChoice, playerNum) {
+
+    // convertiamo la scelta del giocatore in un booleano: abbiamo arbitrariamente assegnato pari = true
+    if (playerChoice === 'even') {
+        playerChoice = true;
+    } else {
+        playerChoice = false;
+    }
+
+    console.log(playerChoice); // logghiamo per controllo
+
+    console.log(playerNum); // logghiamo per controllo
+
+    // questa funzione genera un numero random tra 1 e 5 compresi (la giocata del computer)
+    function randomGenerator(minNum, maxNum) {
+        return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+    }
+
+    // invochiamo la funzione randomGenerator
+    const randomNum = randomGenerator(1, 5);
+    console.log(randomNum); // logghiamo per controllo
+
+    // questa funzione che stabilisce se la somma è pari
+    function numberComparison(randomNum, playerNum) {
+        return (randomNum + playerNum) % 2 === 0;
+    }
+
+    // invochiamo la funzione numberComparison
+    const comparisonResult = numberComparison(randomNum, playerNum);
+    console.log(comparisonResult); // logghiamo per controllo
+
+    // questo conditional che dichiara se il giocatore ha vinto o perso con un alert
+    if (playerChoice === comparisonResult) {
+        return (alert('🍻 You win! Wanna try again?'));
+    } else {
+        return (alert('😭 You loose... wanna try again?'));
+    }
+}
+
+// invochiamo la funzione
+paritas(playerChoice, playerNum);
+
+// quando il giocatore preme ok nell'alert, ricarichiamo la pagina
+window.location.reload();
 
 // -------------------------------------
 // 🔚 FINE DEL CODICE "PARI O DISPARI"
