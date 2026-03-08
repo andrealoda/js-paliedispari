@@ -67,6 +67,10 @@ ROADMAP
 
 // 🔴 la funzione deve essere indipendente da variabili esterne!
 
+// -------------------------------------
+// ➡️ CODICE COMPLETO "PALINDROMO"
+// -------------------------------------
+
 // function isPalindrome(initialWord) {
 
 //     let reversedWord = '';
@@ -85,8 +89,9 @@ ROADMAP
 // const response = isPalindrome(initialWord);
 // alert('Is the word a palindrome? ' + response);
 
-
-// END OF TASK 1
+// -------------------------------------
+// 🔚 FINE DEL CODICE "PALINDROMO"
+// -------------------------------------
 
 // Pari e Dispari
 // 1. L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.
@@ -140,6 +145,13 @@ while (playerChoice !== 'even' && playerChoice !== 'odd') {
     alert('Uh-oh! Check what you wrote. You must enter EVEN or ODD.')
     playerChoice = prompt('Pick even or odd').toLowerCase();
 }
+
+if (playerChoice === 'even') {
+    playerChoice = true;
+} else {
+    playerChoice = false;
+}
+
 console.log(playerChoice);
 
 
@@ -174,3 +186,20 @@ console.log(comparisonResult);
 // qunado vince il giocatore?
 // se il giocatore ha giocato PARI e numberComparison è true
 // se il giocatore ha giocato DISPARI e numberComparison è false
+
+if (playerChoice === comparisonResult) {
+    alert('🍻 You win! Wanna try again?');
+    window.location.reload();
+} else {
+    alert('😭 You loose... wanna try again?');
+    window.location.reload();
+}
+
+// -------------------------------------
+// ➡️ CODICE COMPLETO "PARI O DISPARI"
+// -------------------------------------
+
+
+// -------------------------------------
+// 🔚 FINE DEL CODICE "PARI O DISPARI"
+// -------------------------------------
