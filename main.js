@@ -270,10 +270,13 @@ window.location.reload();
 /*
 DOMANDE:
 - ha senso incartare tutto in una funzione?
+- il risultato della funzione principale non può essere salvato in una variabile, corretto?
 - perchè nelle invocazioni delle funzioni alcuni argomenti non etichettati come parametri da vsc?
 - il conditional che converte pari e dispari in un booleano poteva essere una funzione?
 
 function playerChoiceConverter (playerChoice) {
-    return(playerChoice = 'even' === true)
+    return(playerChoice === 'even')
 }
+
+playerChoiceConverter(playerChoice);
 */
