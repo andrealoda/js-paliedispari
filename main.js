@@ -220,7 +220,7 @@ while (playerNum < 1 || playerNum > 5 || isNaN(playerNum)) {
 // la funzione racchiude tutta la logica del gioco
 function paritas(playerChoice, playerNum) {
 
-    // convertiamo la scelta del giocatore in un booleano: abbiamo arbitrariamente assegnato pari = true
+    // questo conditional converte la scelta del giocatore in un booleano: abbiamo arbitrariamente assegnato pari = true
     if (playerChoice === 'even') {
         playerChoice = true;
     } else {
@@ -266,3 +266,14 @@ window.location.reload();
 // -------------------------------------
 // 🔚 FINE DEL CODICE "PARI O DISPARI"
 // -------------------------------------
+
+/*
+DOMANDE:
+- ha senso incartare tutto in una funzione?
+- perchè nelle invocazioni delle funzioni alcuni argomenti non etichettati come parametri da vsc?
+- il conditional che converte pari e dispari in un booleano poteva essere una funzione?
+
+function playerChoiceConverter (playerChoice) {
+    return(playerChoice = 'even' === true)
+}
+*/
