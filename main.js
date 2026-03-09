@@ -199,69 +199,71 @@ nome della somma: numberSum
 // ➡️ CODICE COMPLETO "PARI O DISPARI"
 // -------------------------------------
 
-// il giocatore sceglie pari o dispari e convertiamo la stringa in minuscolo
-let playerChoice = prompt('Pick even or odd').toLowerCase();
+// // questa funzione genera un numero random tra 1 e 5 compresi (la giocata del computer)
+// function randomGenerator(minNum, maxNum) {
+//     return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+// }
 
-// se il giocatore scrive qualcosa di inaspettato chiediamo di correggere
-while (playerChoice !== 'even' && playerChoice !== 'odd') {
-    alert('Uh-oh! Check what you wrote. You must enter EVEN or ODD.')
-    playerChoice = prompt('Pick even or odd').toLowerCase();
-}
+// // questa funzione che stabilisce se la somma è pari
+// function numberComparison(randomNum, playerNum) {
+//     return (randomNum + playerNum) % 2 === 0;
+// }
 
-// il giocatore scegli il numero
-let playerNum = Number(prompt('Pick a number between 1 and 5'));
 
-// se il giocatore scegli un numero <1 o >5 chiediamo di correggere
-while (playerNum < 1 || playerNum > 5 || isNaN(playerNum)) {
-    alert('Uh-oh! That number isn\'t valid. Try again.')
-    playerNum = Number(prompt('Pick a number between 1 and 5'));
-}
+// // il giocatore sceglie pari o dispari e convertiamo la stringa in minuscolo
+// let playerChoice = prompt('Pick even or odd').toLowerCase();
 
-// la funzione racchiude tutta la logica del gioco
-function paritas(playerChoice, playerNum) {
+// // se il giocatore scrive qualcosa di inaspettato chiediamo di correggere
+// while (playerChoice !== 'even' && playerChoice !== 'odd') {
+//     alert('Uh-oh! Check what you wrote. You must enter EVEN or ODD.')
+//     playerChoice = prompt('Pick even or odd').toLowerCase();
+// }
 
-    // questo conditional converte la scelta del giocatore in un booleano: abbiamo arbitrariamente assegnato pari = true
-    if (playerChoice === 'even') {
-        playerChoice = true;
-    } else {
-        playerChoice = false;
-    }
+// // il giocatore scegli il numero
+// let playerNum = Number(prompt('Pick a number between 1 and 5'));
 
-    console.log(playerChoice); // logghiamo per controllo
+// // se il giocatore scegli un numero <1 o >5 chiediamo di correggere
+// while (playerNum < 1 || playerNum > 5 || isNaN(playerNum)) {
+//     alert('Uh-oh! That number isn\'t valid. Try again.')
+//     playerNum = Number(prompt('Pick a number between 1 and 5'));
+// }
 
-    console.log(playerNum); // logghiamo per controllo
+// // la funzione racchiude tutta la logica del gioco
+// function paritas(playerChoice, playerNum) {
 
-    // questa funzione genera un numero random tra 1 e 5 compresi (la giocata del computer)
-    function randomGenerator(minNum, maxNum) {
-        return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
-    }
+//     // questo conditional converte la scelta del giocatore in un booleano: abbiamo arbitrariamente assegnato pari = true
+//     if (playerChoice === 'even') {
+//         playerChoice = true;
+//     } else {
+//         playerChoice = false;
+//     }
 
-    // invochiamo la funzione randomGenerator
-    const randomNum = randomGenerator(1, 5);
-    console.log(randomNum); // logghiamo per controllo
+//     console.log(playerChoice); // logghiamo per controllo
 
-    // questa funzione che stabilisce se la somma è pari
-    function numberComparison(randomNum, playerNum) {
-        return (randomNum + playerNum) % 2 === 0;
-    }
+//     console.log(playerNum); // logghiamo per controllo
 
-    // invochiamo la funzione numberComparison
-    const comparisonResult = numberComparison(randomNum, playerNum);
-    console.log(comparisonResult); // logghiamo per controllo
+//     // invochiamo la funzione randomGenerator
+//     const randomNum = randomGenerator(1, 5);
+//     console.log(randomNum); // logghiamo per controllo
 
-    // questo conditional che dichiara se il giocatore ha vinto o perso con un alert
-    if (playerChoice === comparisonResult) {
-        return (alert('🍻 You win! Wanna try again?'));
-    } else {
-        return (alert('😭 You loose... wanna try again?'));
-    }
-}
 
-// invochiamo la funzione
-paritas(playerChoice, playerNum);
+//     // invochiamo la funzione numberComparison
+//     const comparisonResult = numberComparison(randomNum, playerNum);
+//     console.log(comparisonResult); // logghiamo per controllo
 
-// quando il giocatore preme ok nell'alert, ricarichiamo la pagina
-window.location.reload();
+//     // questo conditional che dichiara se il giocatore ha vinto o perso con un alert
+//     if (playerChoice === comparisonResult) {
+//         return (alert('🍻 You win! Wanna try again?'));
+//     } else {
+//         return (alert('😭 You loose... wanna try again?'));
+//     }
+// }
+
+// // invochiamo la funzione
+// paritas(playerChoice, playerNum);
+
+// // quando il giocatore preme ok nell'alert, ricarichiamo la pagina
+// window.location.reload();
 
 // -------------------------------------
 // 🔚 FINE DEL CODICE "PARI O DISPARI"
@@ -280,3 +282,82 @@ function playerChoiceConverter (playerChoice) {
 
 playerChoiceConverter(playerChoice);
 */
+
+// -------------------------------------
+// 🎰 PARITAS (PARI O DISPARI)
+// -------------------------------------
+
+// ➡️ FUNZIONI
+
+// questa funzione converte la scelta del giocatore tra pari e dispari (even | odd) in un booleano
+function playerChoiceConverter(playerChoice) {
+    return (playerChoice === 'even')
+}
+
+// questa funzione genera un numero random tra 1 e 5 compresi (il numero scelto dal computer)
+function randomGenerator(minNum, maxNum) {
+    return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+}
+
+// questa funzione che stabilisce se la somma è pari o dispari e converte il risultato in un booleano
+function numberComparison(randomNum, playerNum) {
+    return (randomNum + playerNum) % 2 === 0;
+}
+
+// questa funzione gestisce il gioco
+function paritas(playerChoice, playerNum) {
+
+    console.log('Player choose ' + playerChoice); // logghiamo per controllo
+
+    console.log('Player choose number ' + playerNum); // logghiamo per controllo
+
+    // invochiamo la funzione randomGenerator
+    const randomNum = randomGenerator(1, 5);
+    console.log('Computer choose number ' + randomNum); // logghiamo per controllo
+
+    // invochiamo la funzione numberComparison
+    const comparisonResult = numberComparison(randomNum, playerNum);
+    console.log(comparisonResult); // logghiamo per controllo
+
+    // questo conditional che dichiara se il giocatore ha vinto o perso con un alert
+    if (playerChoiceConverter(playerChoice) === comparisonResult) {
+        return '🍻 You win! Wanna try again?';
+    } else {
+        return '😭 You loose... wanna try again?';
+    }
+}
+
+// ➡️ SCELTE DEL GIOCATORE
+
+// il giocatore sceglie pari o dispari e convertiamo la stringa in minuscolo
+let playerChoice = prompt('Pick even or odd').toLowerCase();
+
+// se il giocatore scrive qualcosa di inaspettato chiediamo di correggere
+while (playerChoice !== 'even' && playerChoice !== 'odd') {
+    alert('Uh-oh! Check what you wrote. You must enter EVEN or ODD.')
+    playerChoice = prompt('Pick even or odd').toLowerCase();
+}
+
+// il giocatore scegli il numero
+let playerNum = Number(prompt('Pick a number between 1 and 5'));
+
+// se il giocatore scegli un numero <1 o >5 chiediamo di correggere
+while (playerNum < 1 || playerNum > 5 || isNaN(playerNum)) {
+    alert('Uh-oh! That number isn\'t valid. Try again.')
+    playerNum = Number(prompt('Pick a number between 1 and 5'));
+}
+
+// ➡️ FACCIAMO INIZIRE IL GIOCO INVOCANDO LA FUNZIONE PARITAS
+
+const winner = (paritas(playerChoice, playerNum));
+console.log(winner);
+
+// ‼️l'alert deve essere l'ultimo, altrimenti la pagina si ricarica prima di mostrare in console il risultato della funzione paritas
+alert(winner);
+
+// QUANDO IL GIOCO FINISCE, SE IL GIOCATORE PREME OK ALL'ULTIMO ALERT SI RICARICA LA PAGINA E IL GIOCO RICOMINCIA
+window.location.reload();
+
+// -------------------------------------
+// 🔚 FINE DEL CODICE "PARITAS"
+// -------------------------------------
