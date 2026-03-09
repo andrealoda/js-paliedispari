@@ -317,7 +317,6 @@ function paritas(playerChoice, playerNum) {
 
     // invochiamo la funzione numberComparison
     const comparisonResult = numberComparison(randomNum, playerNum);
-    console.log(comparisonResult); // logghiamo per controllo
 
     // questo conditional che dichiara se il giocatore ha vinto o perso con un alert
     if (playerChoiceConverter(playerChoice) === comparisonResult) {
